@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesorías de Inglés Profesionales</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Fondo referente a educación/inglés usando Unsplash */
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #4facfe;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+            width: 80%;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Formulario y Test */
+        form {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4facfe;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        option {
+            background: #222;
+            color: white;
+        }
+
+        .test-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #00f2fe;
+        }
+
+        .test-box p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-group label {
+            margin: 0;
+            font-weight: normal;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        /* Resultado */
+        .result-box h2 {
+            color: #00f2fe;
+            margin-bottom: 15px;
+        }
+
+        .result-box p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA 1: AVISO INICIAL -->
+    <div id="view-welcome" class="container">
+        <h1>Clases de Inglés</h1>
+        <p class="subtitle">¡Lleva tu fluidez al siguiente nivel! Asesorías personalizadas adaptadas a tus objetivos y ritmo de aprendizaje.</p>
+        <button class="btn" onclick="showForm()">Saber más</button>
+    </div>
+
+    <!-- PANTALLA 2: FORMULARIO Y MINI-TEST -->
+    <div id="view-form" class="container hidden">
+        <h1>Cuéntame de ti</h1>
+        <form id="student-form" onsubmit="evaluateLevel(event)">
+            
+            <label for="name">Tu Nombre:</label>
+            <input type="text" id="name" required placeholder="Ej. Carlos Pérez">
+
+            <label for="interest">¿Qué te gustaría aprender o mejorar?</label>
+            <textarea id="interest" rows="3" required placeholder="Ej. Gramática, inglés para viajar, prepararme para una entrevista..."></textarea>
+
+            <!-- Mini Prueba de Nivel Dinámica -->
+            <div class="test-box">
+                <label style="margin-top:0;">📋 Mini Prueba de Nivel</label>
+                <p>Selecciona la opción correcta para completar la frase:<br>
+                <em>"If I had known you were coming, I ________ a cake."</em></p>
+                
+                <div class="radio-group">
+                    <label><input type="radio" name="quiz" value="wrong1" required> will bake</label>
+                    <label><input type="radio" name="quiz" value="wrong2"> would bake</label>
+                    <label><input type="radio" name="quiz" value="correct"> would have baked</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn submit-btn">Enviar Diagnóstico</button>
+        </form>
+    </div>
+
+    <!-- PANTALLA 3: RESULTADO DINÁMICO -->
+    <div id="view-result" class="container hidden">
+        <div class="result-box">
+            <h2 id="result-title">Procesando...</h2>
+            <p id="result-text"></p>
+            <button class="btn" onclick="restart()">Volver al inicio</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para pasar del aviso al formulario
+        function showForm() {
+            document.getElementById('view-welcome').classList.add('hidden');
+            document.getElementById('view-form').classList.remove('hidden');
+        }
+
+        // Función para evaluar la respuesta y mostrar el mensaje correspondiente
+        function evaluateLevel(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            const name = document.getElementById('name').value;
+            const selectedAnswer = document.querySelector('input[name="quiz"]:checked').value;
+            
+            const titleElement = document.getElementById('result-title');
+            const textElement = document.getElementById('result-text');
+
+            // La respuesta correcta "would have baked" corresponde a un nivel de Tercera Condicional (B2/C1)
+            if (selectedAnswer === 'correct') {
+                titleElement.textContent = "¡Nivel Avanzado Detectado! ✨";
+                textElement.innerHTML = `¡Hola, <strong>${name}</strong>! Tu nivel está por encima de B2 (dominas estructuras complejas). Ya sabes bastante, pero si lo que buscas es perfeccionar tu fluidez, perder el miedo y practicar tu <strong>speaking</strong> de forma nativa, ¡eres súper bienvenido/a a mis sesiones virtuales!`;
+            } else {
+                titleElement.textContent = "¡Bienvenido/a! 🚀";
+                textElement.innerHTML = `¡Hola, <strong>${name}</strong>! Tienes un excelente punto de partida. Estás en el momento perfecto para estructurar tu aprendizaje. Mis asesorías están listas para ayudarte a alcanzar tus metas con el inglés paso a paso. ¡Iniciemos pronto!`;
+            }
+
+            // Cambiar de vista
+            document.getElementById('view-form').classList.add('hidden');
+            document.getElementById('view-result').classList.remove('hidden');
+        }
+
+        // Función por si quieren regresar o reiniciar
+        function restart() {
+            document.getElementById('student-form').reset();
+            document.getElementById('view-result').classList.add('hidden');
+            document.getElementById('view-welcome').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
