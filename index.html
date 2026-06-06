@@ -1,13 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clases de Inglés A1 - B1</title>
+<title>Asesorías de Inglés Profesionales</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,14 +14,11 @@
 }
 
 body{
-    background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+    background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
     url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80');
-
     background-size:cover;
     background-position:center;
     background-attachment:fixed;
-
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -59,12 +54,7 @@ h1{
 }
 
 .btn{
-    background:linear-gradient(
-    135deg,
-    #00f2fe 0%,
-    #4facfe 100%
-    );
-
+    background:linear-gradient(135deg,#00f2fe 0%,#4facfe 100%);
     color:white;
     border:none;
     padding:15px 35px;
@@ -145,9 +135,7 @@ textarea{
     align-items:center;
     justify-content:center;
     font-size:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
-
 </style>
 </head>
 
@@ -155,349 +143,167 @@ textarea{
 
 <div id="view-welcome" class="container">
 
-<h1>Clases de Inglés A1 - B1</h1>
+    <h1>Clases de Inglés A1 - B1</h1>
 
-<p class="subtitle">
-Lleva tu inglés al siguiente nivel con clases
-personalizadas adaptadas a t```html id="z8z4jl"
+    <p class="subtitle">
+        Lleva tu inglés al siguiente nivel con clases personalizadas.
+    </p>
+
+    <div class="info-box">
+        <p>📚 Niveles: A1 - B1</p>
+        <p>💰 $15.000 por hora</p>
+        <p>🗓️ Fines de semana y festivos</p>
+        <p>⏰ 9:00 AM - 6:00 PM</p>
+        <p>🏫 Próximamente contaremos con salón para clases presenciales.</p>
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="showForm()">
+        Solicitar Información
+    </button>
+
+</div>
+
 <div id="view-form" class="container hidden">
 
-<h1>Cuéntame de ti</h1>
+    <h1>Cuéntame de ti</h1>
 
-<form id="student-form" onsubmit="evaluateLevel(event)">
+    <form id="student-form" onsubmit="evaluateLevel(event)">
 
-<label for="name">Tu Nombre:</label>
-<input
-type="text"
-id="name"
-required
-placeholder="Ej. Carlos Pérez">
+        <label>Tu Nombre:</label>
+        <input type="text" id="name" required>
 
-<label for="interest">
-¿Qué te gustaría aprender o mejorar?
-</label>
+        <label>¿Qué te gustaría aprender o mejorar?</label>
+        <textarea id="interest" rows="3" required></textarea>
 
-<textarea
-id="interest"
-rows="3"
-required
-placeholder="Ej. Gramática, speaking, inglés para viajar o entrevistas">
-</textarea>
+        <label>Tu WhatsApp:</label>
+        <input type="text" id="phone" required>
 
-<label for="phone">Tu WhatsApp:</label>
+        <label>Modalidad:</label>
+        <select id="modality" onchange="toggleAddress()" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Online">Online</option>
+            <option value="Presencial">Presencial</option>
+        </select>
 
-<input
-type="text"
-id="phone"
-required
-placeholder="Ej. 3001234567">
+        <div id="address-container" class="hidden">
+            <label>Dirección:</label>
+            <input type="text" id="address">
+        </div>
 
-<label for="modality">Modalidad:</label>
+        <div class="test-box">
 
-<select
-id="modality"
-required
-onchange="toggleAddress()">
+            <label style="margin-top:0">📋 Mini Prueba de Nivel</label>
 
-<option value="">
-Selecciona una opción
-</option>
+            <p>
+                "If I had known you were coming,
+                I ________ a cake."
+            </p>
 
-<option value="Online">
-Clases Online
-</option>
+            <div class="radio-group">
+                <label><input type="radio" name="quiz" value="wrong1" required> will bake</label>
+                <label><input type="radio" name="quiz" value="wrong2"> would bake</label>
+                <label><input type="radio" name="quiz" value="correct"> would have baked</label>
+            </div>
 
-<option value="Presencial">
-Clases Presenciales
-</option>
+        </div>
 
-</select>
+        <button type="submit" class="btn" style="margin-top:20px;">
+            Enviar Diagnóstico
+        </button>
 
-<div id="address-container" class="hidden">
-
-<label for="address">
-Dirección (solo para presencial)
-</label>
-
-<input
-type="text"
-id="address"
-placeholder="Ej. Calle 10 #20-30">
-
-</div>
-
-<div class="test-box">
-
-<label style="margin-top:0;">
-📋 Mini Prueba de Nivel
-</label>
-
-<p>
-Selecciona la opción correcta para completar la frase:
-<br><br>
-
-<em>
-"If I had known you were coming,
-I ________ a cake."
-</em>
-</p>
-
-<div class="radio-group">
-
-<label>
-<input
-type="radio"
-name="quiz"
-value="wrong1"
-required>
-will bake
-</label>
-
-<label>
-<input
-type="radio"
-name="quiz"
-value="wrong2">
-would bake
-</label>
-
-<label>
-<input
-type="radio"
-name="quiz"
-value="correct">
-would have baked
-</label>
-
-</div>
-
-</div>
-
-<button
-type="submit"
-class="btn"
-style="margin-top:20px;">
-
-Enviar Diagnóstico
-
-</button>
-
-</form>
+    </form>
 
 </div>
 
 <div id="view-result" class="container hidden">
 
-<h2 id="result-title">
-Procesando...
-</h2>
+    <h2 id="result-title"></h2>
+    <p id="result-text"></p>
 
-<p id="result-text"></p>
-
-<button
-class="btn"
-onclick="restart()">
-
-Volver al inicio
-
-</button>
+    <button class="btn" onclick="restart()">
+        Volver al inicio
+    </button>
 
 </div>
 
-<a
-href="https://wa.me/573008865354"
-target="_blank"
-class="whatsapp-float">
-
-💬
-
-</a>
+<a href="https://wa.me/573008865354" target="_blank" class="whatsapp-float">💬</a>
 
 <script>
 
 function showForm(){
-
-document
-.getElementById('view-welcome')
-.classList
-.add('hidden');
-
-document
-.getElementById('view-form')
-.classList
-.remove('hidden');
-
+    document.getElementById('view-welcome').classList.add('hidden');
+    document.getElementById('view-form').classList.remove('hidden');
 }
 
 function toggleAddress(){
 
-const modality =
-document.getElementById('modality').value;
+    const modality=document.getElementById('modality').value;
 
-const addressContainer =
-document.getElementById('address-container');
-
-if(modality === "Presencial"){
-
-addressContainer
-.classList
-.remove('hidden');
-
-}else{
-
-addressContainer
-.classList
-.add('hidden');
-
+    if(modality==="Presencial"){
+        document.getElementById('address-container').classList.remove('hidden');
+    }else{
+        document.getElementById('address-container').classList.add('hidden');
+    }
 }
 
-}
-```
-us objetivos.
-</p>
-
-<div class="info-box">
-<p>📚 Niveles: A1 - B1</p>
-<p>💰 Valor: $15.000 por hora</p>
-<p>🗓️ Fines de semana y festivos</p>
-<p>⏰ Horario: 9:00 AM - 6:00 PM</p>
-<p>🏫 Próximamente contaremos con salón para clases presenciales.</p>
-</div>
-
-<br>
-
-<button class="btn" onclick="showForm()">
-Solicitar Información
-</button>
-
-</div>
-```
-```html id="v6o9nm"
 function evaluateLevel(event){
 
-event.preventDefault();
+    event.preventDefault();
 
-const name =
-document.getElementById('name').value;
+    const name=document.getElementById('name').value;
+    const interest=document.getElementById('interest').value;
+    const phone=document.getElementById('phone').value;
+    const modality=document.getElementById('modality').value;
+    const address=document.getElementById('address').value || "No aplica";
 
-const interest =
-document.getElementById('interest').value;
+    const selectedAnswer=
+    document.querySelector('input[name="quiz"]:checked').value;
 
-const phone =
-document.getElementById('phone').value;
+    let level="A1 - B1";
 
-const modality =
-document.getElementById('modality').value;
+    if(selectedAnswer==="correct"){
+        level="B2 o superior";
+        document.getElementById('result-title').textContent=
+        "¡Nivel Avanzado Detectado! ✨";
+    }else{
+        document.getElementById('result-title').textContent=
+        "¡Bienvenido! 🚀";
+    }
 
-const address =
-document.getElementById('address').value || "No aplica";
+    document.getElementById('result-text').innerHTML=
+    `Gracias <strong>${name}</strong>. Te estamos redirigiendo a WhatsApp.`;
 
-const selectedAnswer =
-document.querySelector(
-'input[name="quiz"]:checked'
-).value;
-
-let level;
-
-const titleElement =
-document.getElementById('result-title');
-
-const textElement =
-document.getElementById('result-text');
-
-if(selectedAnswer === "correct"){
-
-level = "B2 o superior";
-
-titleElement.textContent =
-"¡Nivel Avanzado Detectado! ✨";
-
-textElement.innerHTML =
-`¡Hola <strong>${name}</strong>!
-Tienes una excelente base en inglés.
-Gracias por tu interés.`;
-
-}else{
-
-level = "A1 - B1";
-
-titleElement.textContent =
-"¡Bienvenido/a! 🚀";
-
-textElement.innerHTML =
-`¡Hola <strong>${name}</strong>!
-Gracias por tu interés en las clases.`;
-
-}
-
-const mensaje =
-
-`Hola Kristopher.
+    const mensaje=`Hola Kristopher.
 
 📚 Solicitud de clases de inglés
 
 👤 Nombre: ${name}
+📱 WhatsApp: ${phone}
+🎯 Objetivo: ${interest}
+💻 Modalidad: ${modality}
+📍 Dirección: ${address}
+📈 Nivel estimado: ${level}
 
-📱 WhatsApp:
-${phone}
+Quiero recibir más información.`;
 
-🎯 Objetivo:
-${interest}
+    window.open(
+        "https://wa.me/573008865354?text="+encodeURIComponent(mensaje),
+        "_blank"
+    );
 
-💻 Modalidad:
-${modality}
-
-📍 Dirección:
-${address}
-
-📈 Nivel estimado:
-${level}
-
-Me gustaría recibir más información sobre las clases.`;
-
-window.open(
-"https://wa.me/573008865354?text=" +
-encodeURIComponent(mensaje),
-"_blank"
-);
-
-document
-.getElementById('view-form')
-.classList
-.add('hidden');
-
-document
-.getElementById('view-result')
-.classList
-.remove('hidden');
-
+    document.getElementById('view-form').classList.add('hidden');
+    document.getElementById('view-result').classList.remove('hidden');
 }
 
 function restart(){
-
-document
-.getElementById('student-form')
-.reset();
-
-document
-.getElementById('view-result')
-.classList
-.add('hidden');
-
-document
-.getElementById('view-welcome')
-.classList
-.remove('hidden');
-
-document
-.getElementById('address-container')
-.classList
-.add('hidden');
-
+    document.getElementById('student-form').reset();
+    document.getElementById('view-result').classList.add('hidden');
+    document.getElementById('view-welcome').classList.remove('hidden');
 }
 
 </script>
 
 </body>
 </html>
-```
